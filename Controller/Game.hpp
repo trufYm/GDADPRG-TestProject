@@ -10,7 +10,7 @@ namespace controllers {
         //Fields
         private:
             sf::RenderWindow CWindow;
-            models::GameObject* CEntity;
+            models::GameObject CEntity;
             bool bCloseWindow = false;
         
         //Controllers
@@ -25,5 +25,6 @@ namespace controllers {
             void processEvents();
             void update();
             void render();
+            void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed);
     };
 }

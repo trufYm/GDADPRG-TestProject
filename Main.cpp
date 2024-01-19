@@ -1,8 +1,8 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
 
-#include "Controller/Game.hpp"
+#include "Controller/Game.cpp"
+#include "Model/GameObject.cpp"
 
 using namespace controllers;
 

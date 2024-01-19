@@ -2,8 +2,8 @@
 
 using namespace models;
 
-GameObject::GameObject(sf::Texture CTexture) {
-    this->setTexture(CTexture);
+GameObject::GameObject() {
+
 }
 
 //Methods

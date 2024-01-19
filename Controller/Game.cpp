@@ -3,16 +3,14 @@
 using namespace controllers;
 
 //Constructors
-Game::Game() : CWindow(sf::VideoMode(243, 238), "EMMANUEL JOHN TAYLAN"){
+Game::Game() : CWindow(sf::VideoMode(500, 500), "EMMANUEL JOHN TAYLAN"){
     //this->CWindow = sf::RenderWindow(sf::VideoMode(200, 200), "EMMANUEL JOHN TAYLAN");
     
     sf::Texture CTexture;
-    if(!CTexture.loadFromFile("./View/Image/akame.png")){
+    if(!CTexture.loadFromFile("View/Image/akame.png")){
         std::cout << "ERROR" << std::endl;
     }
-    else {
-        this->CEntity = new models::GameObject(CTexture);
-    }
+    this->CEntity.setTexture(CTexture);
 }
 
 
@@ -32,19 +30,36 @@ void Game::processEvents() {
                 case sf::Event::Closed:
                     this->CWindow.close();
                     break;
+                case sf::Event::KeyPressed:
+                    processKeyboardInput(CEvent.key.code, true);
+                    break;
+                case sf::Event::KeyReleased:
+                    processKeyboardInput(CEvent.key.code, false);
+                    break;
             }
         }
 }
 
 void Game::update() {
-    if(bCloseWindow){
-        bCloseWindow = false;
-        CWindow.close();
-    }
+
 }
 
 void Game::render() {
     this->CWindow.clear();
-    this->CEntity->renderTo(&this->CWindow);
+    this->CWindow.draw(*this->CEntity.getSprite());
     this->CWindow.display();
+}
+
+void Game::processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed) {
+    switch (CKey) {
+        case sf::Keyboard::A:
+            std::cout << "A" << std::endl;
+            this->CEntity.getSprite()->move(-5.0f, 0);
+            break;
+        case sf::Keyboard::D:
+            std::cout << "D" << std::endl;
+            this->CEntity.getSprite()->move(5.0f, 0);
+            break;
+
+    }
 }

@@ -11,7 +11,7 @@ namespace models {
         
         //Constructors
         public:
-            GameObject(sf::Texture CTexture);
+            GameObject();
         
         //Methods
             void renderTo(sf::RenderWindow* window);
