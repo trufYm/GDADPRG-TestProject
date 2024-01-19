@@ -1,9 +1,6 @@
 #pragma once
 
-#include <iostream>
 #include "../Model/GameObject.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Graphics.hpp"
 
 namespace controllers {
     class Game {

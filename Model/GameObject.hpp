@@ -1,7 +1,5 @@
 #pragma once
 
-#include "SFML/Graphics.hpp"
-
 namespace models {
     class GameObject {
         //Field

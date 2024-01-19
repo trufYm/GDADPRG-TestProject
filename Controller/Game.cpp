@@ -10,9 +10,9 @@ Game::Game() : CWindow(sf::VideoMode(500, 500), "EMMANUEL JOHN TAYLAN"){
     if(!CTexture.loadFromFile("View/Image/akame.png")){
         std::cout << "ERROR" << std::endl;
     }
+
     this->CEntity.setTexture(CTexture);
 }
-
 
 //Methods
 void Game::run(){
@@ -53,11 +53,9 @@ void Game::render() {
 void Game::processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed) {
     switch (CKey) {
         case sf::Keyboard::A:
-            std::cout << "A" << std::endl;
             this->CEntity.getSprite()->move(-5.0f, 0);
             break;
         case sf::Keyboard::D:
-            std::cout << "D" << std::endl;
             this->CEntity.getSprite()->move(5.0f, 0);
             break;
 
