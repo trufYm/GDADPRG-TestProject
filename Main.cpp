@@ -10,7 +10,11 @@ int main() {
    Game CGame;
    CGame.run();
 
-   /*sf::RenderWindow window(sf::VideoMode(200, 200), "SFML Start-Up");
+   return 0;
+}
+
+//Code for Square
+/*sf::RenderWindow window(sf::VideoMode(200, 200), "SFML Start-Up");
    sf::CircleShape shape(100.f);
    shape.setFillColor(sf::Color::Green);
 
@@ -25,6 +29,3 @@ int main() {
       window.draw(shape);
       window.display();
    }*/
-
-   return 0;
-}
