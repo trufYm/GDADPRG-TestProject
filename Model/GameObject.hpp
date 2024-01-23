@@ -6,6 +6,9 @@ namespace models {
         private:
             sf::Texture CTexture;
             sf::Sprite imgSprite;
+            float fSpeed;
+            bool isMovingLeft;
+            bool isMovingRight;
         
         //Constructors
         public:
@@ -18,5 +21,13 @@ namespace models {
         public:
             void setTexture(sf::Texture CTexture);
             sf::Sprite* getSprite();
+
+            float getSpeed();
+            
+            bool getMovingLeft();
+            void setMovingLeft(bool isMovingLeft);
+            
+            bool getMovingRight();
+            void setMovingRight(bool isMovingRight);
     };
 }

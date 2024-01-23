@@ -8,6 +8,7 @@ namespace controllers {
         private:
             sf::RenderWindow CWindow;
             models::GameObject CEntity;
+            models::GameObject CDonPer;
             bool bCloseWindow = false;
         
         //Controllers
@@ -20,7 +21,7 @@ namespace controllers {
         
         private:
             void processEvents();
-            void update();
+            void update(sf::Time tTimePerFrame);
             void render();
             void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed);
     };
