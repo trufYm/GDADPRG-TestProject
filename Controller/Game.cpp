@@ -5,7 +5,7 @@ using namespace controllers;
 //Constructors
 Game::Game() : CWindow(sf::VideoMode(800, 500), "EMMANUEL JOHN TAYLAN"){
     //this->CWindow = sf::RenderWindow(sf::VideoMode(200, 200), "EMMANUEL JOHN TAYLAN");
-    
+
     sf::Texture CTexture;
     if(!CTexture.loadFromFile("View/Image/akame.png")){
         std::cout << "ERROR" << std::endl;
@@ -21,7 +21,11 @@ Game::Game() : CWindow(sf::VideoMode(800, 500), "EMMANUEL JOHN TAYLAN"){
 
     this->CDonPer.getSprite()->setPosition(100, 100);
 
-    Template::getInstance()->test();
+    Template::getInstance()->test(); //No work, no instance of template
+
+    TextureManager::getInstance()->loadAll();
+    TextureManager::getInstance()->getTexture("hello");
+    TextureManager::getInstance()->getTextureAt("hello", 5);
 }
 
 //Methods

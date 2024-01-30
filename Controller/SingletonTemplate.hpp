@@ -5,8 +5,6 @@ namespace controllers{
         public:
             void test();
 
-
-
         private:
             static Template* P_SHARED_INSTANCE;
 

@@ -6,8 +6,6 @@ void Template::test() {
     std::cout << "Yes" << std::endl;
 }
 
-
-
 Template* Template::P_SHARED_INSTANCE = NULL;
 
 Template::Template() {}

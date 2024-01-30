@@ -1,8 +1,12 @@
 #pragma once
 
 #include "../Model/GameObject.hpp"
+#include "SingletonTemplate.hpp"
+#include "Manager/TextureManager.hpp"
 
 namespace controllers {
+    using namespace models;
+    using namespace managers;
     class Game {
         //Fields
         private:
