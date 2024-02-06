@@ -1,33 +1,28 @@
 #pragma once
 
+/* * * * * [TODO][1] * * * * *
+ Add content based on the Game
+ Object class diagram shown in
+ the lecture slides.
+ * * * * * * * * * * * * * * */
+
 namespace models {
     class GameObject {
-        //Field
-        private:
-            sf::Texture CTexture;
-            sf::Sprite imgSprite;
+        protected:
+            bool bEnabled;
+            std::string strName;
+            sf::Sprite* pSprite;
+            sf::Texture* pTexture;
             float fSpeed;
-            bool isMovingLeft;
-            bool isMovingRight;
-        
-        //Constructors
-        public:
-            GameObject();
-        
-        //Methods
-            void renderTo(sf::RenderWindow* window);
 
-        //Getters & Setters
         public:
-            void setTexture(sf::Texture CTexture);
+            GameObject(std::string strName, float fSpeed);
+        
+        public:
+            bool getEnabled();
+            std::string getName();
             sf::Sprite* getSprite();
-
+            void setTexture(sf::Texture* pTexture);
             float getSpeed();
-            
-            bool getMovingLeft();
-            void setMovingLeft(bool isMovingLeft);
-            
-            bool getMovingRight();
-            void setMovingRight(bool isMovingRight);
     };
 }

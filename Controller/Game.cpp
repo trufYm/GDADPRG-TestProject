@@ -3,29 +3,14 @@
 using namespace controllers;
 
 //Constructors
-Game::Game() : CWindow(sf::VideoMode(800, 500), "EMMANUEL JOHN TAYLAN"){
+Game::Game() : CWindow(sf::VideoMode(800, 500), "EMMANUEL JOHN TAYLAN"), CEntity("Player"){
     //this->CWindow = sf::RenderWindow(sf::VideoMode(200, 200), "EMMANUEL JOHN TAYLAN");
 
-    sf::Texture CTexture;
-    if(!CTexture.loadFromFile("View/Image/akame.png")){
-        std::cout << "ERROR" << std::endl;
-    }
-
-    sf::Texture CTex2;
-    if(!CTex2.loadFromFile("View/Image/donpersimmon.png")){
-        std::cout << "ERROR" << std::endl;
-    }
-
-    this->CEntity.setTexture(CTexture);
-    this->CDonPer.setTexture(CTex2);
-
-    this->CDonPer.getSprite()->setPosition(100, 100);
-
-    Template::getInstance()->test(); //No work, no instance of template
-
     TextureManager::getInstance()->loadAll();
-    TextureManager::getInstance()->getTexture("hello");
-    TextureManager::getInstance()->getTextureAt("hello", 5);
+
+    this->CEntity.setTexture(TextureManager::getInstance()->getTextureAt(AssetType::PLAYER, 0));
+
+    this->CEntity.getSprite()->setPosition(100.0f, 100.0f);
 }
 
 //Methods
@@ -79,7 +64,6 @@ void Game::update(sf::Time tTimePerFrame) {
 void Game::render() {
     this->CWindow.clear();
     this->CWindow.draw(*this->CEntity.getSprite());
-    this->CWindow.draw(*this->CDonPer.getSprite());
     this->CWindow.display();
 }
 

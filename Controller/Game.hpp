@@ -1,18 +1,18 @@
 #pragma once
 
-#include "../Model/GameObject.hpp"
+#include "../Model/Entity/Player.hpp"
 #include "SingletonTemplate.hpp"
 #include "Manager/TextureManager.hpp"
+#include "../Model/Enum/AssetType.hpp"
 
 namespace controllers {
-    using namespace models;
+    using namespace entities;
     using namespace managers;
     class Game {
         //Fields
         private:
             sf::RenderWindow CWindow;
-            models::GameObject CEntity;
-            models::GameObject CDonPer;
+            Player CEntity;
             bool bCloseWindow = false;
         
         //Controllers

@@ -6,6 +6,7 @@
 #include "Model/GameObject.cpp"
 #include "Controller/SingletonTemplate.cpp"
 #include "Controller/Manager/TextureManager.cpp"
+#include "Model/Entity/Player.cpp"
 
 using namespace controllers;
 
