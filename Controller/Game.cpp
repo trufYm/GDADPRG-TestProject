@@ -3,14 +3,13 @@
 using namespace controllers;
 
 //Constructors
-Game::Game() : CWindow(sf::VideoMode(800, 500), "EMMANUEL JOHN TAYLAN"), CEntity("Player"){
+Game::Game() : CWindow(sf::VideoMode(800, 500), "EMMANUEL JOHN TAYLAN"){
     //this->CWindow = sf::RenderWindow(sf::VideoMode(200, 200), "EMMANUEL JOHN TAYLAN");
-
     TextureManager::getInstance()->loadAll();
 
-    this->CEntity.setTexture(TextureManager::getInstance()->getTextureAt(AssetType::PLAYER, 0));
-
-    this->CEntity.getSprite()->setPosition(100.0f, 100.0f);
+    Player* pEntity = new Player("Player");
+    pEntity->setTexture(TextureManager::getInstance()->getTextureAt(AssetType::PLAYER, 0));
+    GameObjectManager::getInstance()->addObject(pEntity);
 }
 
 //Methods
@@ -40,41 +39,21 @@ void Game::processEvents() {
                 case sf::Event::Closed:
                     this->CWindow.close();
                     break;
-                case sf::Event::KeyPressed:
-                    processKeyboardInput(CEvent.key.code, true);
+                
+                default:
+                    GameObjectManager::getInstance()->processEvents(CEvent);
                     break;
-                case sf::Event::KeyReleased:
-                    processKeyboardInput(CEvent.key.code, false);
-                    break;
+                
             }
         }
 }
 
-void Game::update(sf::Time tTimePerFrame) {
-    if(this->CEntity.getMovingLeft()){
-        this->CEntity.getSprite()->move(-1.0f * this->CEntity.getSpeed() * tTimePerFrame.asSeconds(), 0.0f);
-    }
-
-    if(this->CEntity.getMovingRight()){
-        this->CEntity.getSprite()->move(1.0f * this->CEntity.getSpeed() * tTimePerFrame.asSeconds(), 0.0f);
-    }
-    
+void Game::update(sf::Time tDeltaTime) {
+    GameObjectManager::getInstance()->update(tDeltaTime);
 }
 
 void Game::render() {
     this->CWindow.clear();
-    this->CWindow.draw(*this->CEntity.getSprite());
+    GameObjectManager::getInstance()->draw(&this->CWindow);
     this->CWindow.display();
-}
-
-void Game::processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed) {
-    switch (CKey) {
-        case sf::Keyboard::A:
-            this->CEntity.setMovingLeft(isPressed);
-            break;
-        case sf::Keyboard::D:
-            this->CEntity.setMovingRight(isPressed);
-            break;
-
-    }
 }

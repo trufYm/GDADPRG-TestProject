@@ -2,23 +2,31 @@
 
 #include "../GameObject.hpp"
 
-namespace entities{
+namespace entities {
     using namespace models;
-    class Player : public GameObject{
-        //Fields
+
+    class Player : public GameObject {
         private:
             bool bMovingLeft;
             bool bMovingRight;
 
-        //Constructors
         public:
             Player(std::string strName);
 
-        //Methods
+        /* [TODO][1] :
+           Update this class' content based on the lecture
+           slides. */
         public:
-            void setMovingLeft(bool bMovingLeft);
+            void initialize();
+            void update(sf::Time tDeltaTime);
+        
+        protected:
+            void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed);
+
+        public:
             bool getMovingLeft();
-            void setMovingRight(bool bMovingRight);
+            void setMovingLeft(bool bMovingLeft);
             bool getMovingRight();
+            void setMovingRight(bool bMovingRight);
     };
 }

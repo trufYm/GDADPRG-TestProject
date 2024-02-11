@@ -4,6 +4,7 @@
 #include "SingletonTemplate.hpp"
 #include "Manager/TextureManager.hpp"
 #include "../Model/Enum/AssetType.hpp"
+#include "Manager/GameObjectManager.hpp"
 
 namespace controllers {
     using namespace entities;
@@ -12,8 +13,6 @@ namespace controllers {
         //Fields
         private:
             sf::RenderWindow CWindow;
-            Player CEntity;
-            bool bCloseWindow = false;
         
         //Controllers
         public:
@@ -27,6 +26,5 @@ namespace controllers {
             void processEvents();
             void update(sf::Time tTimePerFrame);
             void render();
-            void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed);
     };
 }

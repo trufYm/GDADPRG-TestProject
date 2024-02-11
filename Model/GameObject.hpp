@@ -1,11 +1,5 @@
 #pragma once
 
-/* * * * * [TODO][1] * * * * *
- Add content based on the Game
- Object class diagram shown in
- the lecture slides.
- * * * * * * * * * * * * * * */
-
 namespace models {
     class GameObject {
         protected:
@@ -18,6 +12,19 @@ namespace models {
         public:
             GameObject(std::string strName, float fSpeed);
         
+        /* [TODO][1] :
+           Update this class' content based on the lecture
+           slides. */
+        public:
+            virtual void initialize() = 0;
+            virtual void processEvents(sf::Event CEvent);
+            virtual void update(sf::Time tDeltaTime) = 0;
+            virtual void draw(sf::RenderWindow* pWindow);
+
+        protected:
+            virtual void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed) = 0;
+
+
         public:
             bool getEnabled();
             std::string getName();

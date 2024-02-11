@@ -9,6 +9,25 @@ GameObject::GameObject(std::string strName, float fSpeed) {
     this->pSprite = new sf::Sprite();
 }
 
+/* [TODO][2] :
+   Update this class' content based on the lecture
+   slides. */
+void GameObject::processEvents(sf::Event CEvent){
+    switch(CEvent.type){
+        case sf::Event::KeyPressed:
+            processKeyboardInput(CEvent.key.code, true);
+            break;
+        case sf::Event::KeyReleased:
+            processKeyboardInput(CEvent.key.code, false);
+            break;
+        default:
+            break;
+    }
+}
+void GameObject::draw(sf::RenderWindow* pWindow){
+    pWindow->draw(*this->pSprite);
+}
+
 bool GameObject::getEnabled() {
     return this->bEnabled;
 }
@@ -26,6 +45,6 @@ void GameObject::setTexture(sf::Texture* pTexture) {
     this->pSprite->setTexture(*this->pTexture);
 }
 
-float GameObject::getSpeed(){
+float GameObject::getSpeed() {
     return this->fSpeed;
 }
