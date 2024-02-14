@@ -7,8 +7,12 @@ Game::Game() : CWindow(sf::VideoMode(800, 500), "EMMANUEL JOHN TAYLAN"){
     //this->CWindow = sf::RenderWindow(sf::VideoMode(200, 200), "EMMANUEL JOHN TAYLAN");
     TextureManager::getInstance()->loadAll();
 
-    Player* pEntity = new Player("Player");
+    /*Player* pEntity = new Player("Player");
     pEntity->setTexture(TextureManager::getInstance()->getTextureAt(AssetType::PLAYER, 0));
+    GameObjectManager::getInstance()->addObject(pEntity);*/
+
+    AnimatedTexture* pTexture = new AnimatedTexture(AssetType::PLAYER, TextureManager::getInstance()->getTexture(AssetType::PLAYER));
+    Player* pEntity = new Player("Player", pTexture);
     GameObjectManager::getInstance()->addObject(pEntity);
 }
 

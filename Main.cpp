@@ -8,6 +8,8 @@
 #include "Controller/Manager/TextureManager.cpp"
 #include "Model/Entity/Player.cpp"
 #include "Controller/Manager/GameObjectManager.cpp"
+#include "Model/AnimatedTexture.cpp"
+#include "Model/Component/Component.cpp"
 
 using namespace controllers;
 

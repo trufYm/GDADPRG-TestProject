@@ -7,14 +7,14 @@ void TextureManager::loadAll() {
 
     sf::Texture* pTexture = new sf::Texture();
 
-    if(!pTexture->loadFromFile("View/Image/donpersimmon.png"))
+    if(!pTexture->loadFromFile("View/Image/caveman.png"))
         std::cout << "ERROR" << std::endl;
     
     //Dictionary - string value pair -> give string return vector
     this->mapTexture[AssetType::PLAYER].push_back(pTexture);
 
     pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/akame.png");
+    pTexture->loadFromFile("View/Image/ancient.png");
     this->mapTexture[AssetType::PLAYER].push_back(pTexture);
 }
 

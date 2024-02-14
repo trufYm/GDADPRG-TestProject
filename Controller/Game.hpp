@@ -5,10 +5,12 @@
 #include "Manager/TextureManager.hpp"
 #include "../Model/Enum/AssetType.hpp"
 #include "Manager/GameObjectManager.hpp"
+#include "../Model/AnimatedTexture.hpp"
 
 namespace controllers {
     using namespace entities;
     using namespace managers;
+    using namespace models;
     class Game {
         //Fields
         private:

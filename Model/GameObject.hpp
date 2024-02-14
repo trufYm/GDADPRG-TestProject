@@ -1,5 +1,7 @@
 #pragma once
 
+#include "AnimatedTexture.hpp"
+
 namespace models {
     class GameObject {
         protected:
@@ -7,10 +9,12 @@ namespace models {
             std::string strName;
             sf::Sprite* pSprite;
             sf::Texture* pTexture;
+            AnimatedTexture* pAnimatedTexture;
             float fSpeed;
 
         public:
             GameObject(std::string strName, float fSpeed);
+            GameObject(std::string strName, float fSpeed, AnimatedTexture* pAnimatedTexture);
         
         /* [TODO][1] :
            Update this class' content based on the lecture
@@ -30,6 +34,7 @@ namespace models {
             std::string getName();
             sf::Sprite* getSprite();
             void setTexture(sf::Texture* pTexture);
+            void setFrame(int nFrame);
             float getSpeed();
     };
 }

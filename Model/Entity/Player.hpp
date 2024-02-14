@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../GameObject.hpp"
+#include "../AnimatedTexture.hpp"
 
 namespace entities {
     using namespace models;
@@ -12,6 +13,7 @@ namespace entities {
 
         public:
             Player(std::string strName);
+            Player(std::string strName, AnimatedTexture* pTexture);
 
         /* [TODO][1] :
            Update this class' content based on the lecture

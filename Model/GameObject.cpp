@@ -9,6 +9,16 @@ GameObject::GameObject(std::string strName, float fSpeed) {
     this->pSprite = new sf::Sprite();
 }
 
+GameObject::GameObject(std::string strName, float fSpeed, AnimatedTexture* pAnimatedTexture) {
+    this->bEnabled = true;
+    this->strName = strName;
+    this->fSpeed = fSpeed;
+    this->pSprite = new sf::Sprite();
+    this->pAnimatedTexture = pAnimatedTexture;
+    this->setFrame(0);
+}
+
+
 /* [TODO][2] :
    Update this class' content based on the lecture
    slides. */
@@ -43,6 +53,13 @@ sf::Sprite* GameObject::getSprite() {
 void GameObject::setTexture(sf::Texture* pTexture) {
     this->pTexture = pTexture;
     this->pSprite->setTexture(*this->pTexture);
+}
+
+void GameObject::setFrame(int nFrame){
+    if(pAnimatedTexture != NULL){
+        this->pAnimatedTexture->setCurrentFrame(nFrame);
+        this->pSprite->setTexture(*this->pAnimatedTexture->getFrame());
+    }
 }
 
 float GameObject::getSpeed() {
