@@ -23,7 +23,7 @@ GameObject::GameObject(std::string strName, float fSpeed, AnimatedTexture* pAnim
    Update this class' content based on the lecture
    slides. */
 void GameObject::processEvents(sf::Event CEvent){
-    switch(CEvent.type){
+    /*switch(CEvent.type){
         case sf::Event::KeyPressed:
             processKeyboardInput(CEvent.key.code, true);
             break;
@@ -32,7 +32,7 @@ void GameObject::processEvents(sf::Event CEvent){
             break;
         default:
             break;
-    }
+    }*/
 }
 void GameObject::draw(sf::RenderWindow* pWindow){
     pWindow->draw(*this->pSprite);
@@ -64,4 +64,30 @@ void GameObject::setFrame(int nFrame){
 
 float GameObject::getSpeed() {
     return this->fSpeed;
+}
+
+void GameObject::attachComponent(Component* pComponent){
+    this->vecComponents.push_back(pComponent);
+    pComponent->attachOwner(this);
+}
+
+void GameObject::detachComponent(Component* pComponent){
+    int nIndex = -1;
+    for(int i = 0; i < this->vecComponents.size(); i++){
+        if(vecComponents[i] == pComponent)
+            nIndex = i;
+    }
+
+    if(nIndex != -1){
+        this->vecComponents[nIndex]->detachOwner();
+        this->vecComponents.erase(this->vecComponents.begin() + nIndex);
+    }
+}
+
+Component* GameObject::findComponentByName(std::string strName){
+
+}
+
+std::vector<Component*> GameObject::getComponents(ComponentType EType){
+
 }

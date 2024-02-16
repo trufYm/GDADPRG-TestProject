@@ -10,6 +10,8 @@
 #include "Controller/Manager/GameObjectManager.cpp"
 #include "Model/AnimatedTexture.cpp"
 #include "Model/Component/Component.cpp"
+#include "Model/Component/GeneralInput.cpp"
+#include "Model/Component/PlayerInput.cpp"
 
 using namespace controllers;
 

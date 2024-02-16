@@ -1,7 +1,10 @@
 #pragma once
 
-#include "../GameObject.hpp"
 #include "../Enum/ComponentType.hpp"
+
+namespace models {
+    class GameObject; /* [NOTE] : Forward declaration. This is a Reading Assignment. */
+}
 
 namespace components{
     using namespace models;
@@ -26,6 +29,8 @@ namespace components{
             ComponentType getType();
             std::string getName();
             sf::Time getTime();
-
+            void setDeltaTime(sf::Time tDeltaTime);
     };
 }
+
+

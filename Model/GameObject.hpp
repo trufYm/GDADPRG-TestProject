@@ -1,8 +1,11 @@
 #pragma once
 
 #include "AnimatedTexture.hpp"
+#include "Component/Component.hpp"
+#include "Enum/ComponentType.hpp"
 
 namespace models {
+    using namespace components;
     class GameObject {
         protected:
             bool bEnabled;
@@ -11,6 +14,7 @@ namespace models {
             sf::Texture* pTexture;
             AnimatedTexture* pAnimatedTexture;
             float fSpeed;
+            std::vector<Component*> vecComponents;
 
         public:
             GameObject(std::string strName, float fSpeed);
@@ -25,9 +29,8 @@ namespace models {
             virtual void update(sf::Time tDeltaTime) = 0;
             virtual void draw(sf::RenderWindow* pWindow);
 
-        protected:
-            virtual void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed) = 0;
-
+        //protected:
+        //   virtual void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed) = 0;
 
         public:
             bool getEnabled();
@@ -36,5 +39,9 @@ namespace models {
             void setTexture(sf::Texture* pTexture);
             void setFrame(int nFrame);
             float getSpeed();
+            void attachComponent(Component* pComponent);
+            void detachComponent(Component* pComponent);
+            Component* findComponentByName(std::string strName);
+            std::vector<Component*> getComponents(ComponentType EType);
     };
 }

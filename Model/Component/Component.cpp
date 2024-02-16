@@ -10,20 +10,17 @@ Component::Component(std::string strName, ComponentType EType){
 
 Component::~Component(){
     this->pOwner = NULL;
-    //this->EType = ComponentType::NONE;
+    this->EType = ComponentType::NONE;
 }
         
 void Component::attachOwner(GameObject* pOwner){
-
+    this->pOwner = pOwner;
 }
+
 void Component::detachOwner(){
-
+    delete this;
 }
-
-void Component::perform(){
-
-}
-        
+     
 GameObject* Component::getOwner(){
     return this->pOwner;
 }
@@ -38,4 +35,8 @@ std::string Component::getName(){
 
 sf::Time Component::getTime(){
     return this->tDeltaTime;
+}
+
+void Component::setDeltaTime(sf::Time tDeltaTime){
+    this->tDeltaTime = tDeltaTime;
 }
