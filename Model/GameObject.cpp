@@ -85,9 +85,23 @@ void GameObject::detachComponent(Component* pComponent){
 }
 
 Component* GameObject::findComponentByName(std::string strName){
+    for (Component* pComponent : this->vecComponents){
+        if(pComponent->getName() == strName){
+            return pComponent;
+            break;
+        }
+    }
 
+    return NULL;
 }
 
 std::vector<Component*> GameObject::getComponents(ComponentType EType){
+    std::vector<Component*> vecTemp;
 
+    for (Component* pComponent : this->vecComponents){
+        if(pComponent->getType() == EType)
+            vecTemp.push_back(pComponent);
+    }
+
+    return vecTemp;
 }
