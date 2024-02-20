@@ -4,7 +4,7 @@
 #include "../Enum/ComponentType.hpp"
 
 namespace components {
-    class GeneralInput : protected Component{
+    class GeneralInput : public Component{
         protected:
             sf::Event CEvent;
 

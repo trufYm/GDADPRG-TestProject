@@ -39,7 +39,13 @@ void GameObject::update(sf::Time tDeltaTime){
 }
 
 void GameObject::draw(sf::RenderWindow* pWindow){
-    pWindow->draw(*this->pSprite);
+    /*std::vector<Component*> vecRenderers = this->getComponents(ComponentType::RENDERER);
+
+    for(Component* pComponent : vecRenderers){
+        Renderer* pRenderer = (Renderer*) pComponent;
+        pRenderer->assignTargetWindow(pWindow);
+        pRenderer->perform();
+    }*/
 }
 
 bool GameObject::getEnabled() {

@@ -18,6 +18,10 @@ void Player::initialize(){
 
     PlayerMovement* pPlayerMovement = new PlayerMovement(this->strName + " Movement");
     this->attachComponent(pPlayerMovement);
+
+    /*Renderer* pRenderer = new Renderer();
+    pRenderer->assignDrawable(this->pSprite);
+    this->attachComponent(pRenderer);*/
 }
 
 //void Player::update(sf::Time tDeltaTime){
