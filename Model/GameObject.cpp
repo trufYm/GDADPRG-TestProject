@@ -18,22 +18,26 @@ GameObject::GameObject(std::string strName, float fSpeed, AnimatedTexture* pAnim
     this->setFrame(0);
 }
 
-
-/* [TODO][2] :
-   Update this class' content based on the lecture
-   slides. */
 void GameObject::processEvents(sf::Event CEvent){
-    /*switch(CEvent.type){
-        case sf::Event::KeyPressed:
-            processKeyboardInput(CEvent.key.code, true);
-            break;
-        case sf::Event::KeyReleased:
-            processKeyboardInput(CEvent.key.code, false);
-            break;
-        default:
-            break;
-    }*/
+    std::vector<Component*> vecInputs = this->getComponents(ComponentType::INPUT);
+
+    for (Component* pComponent : vecInputs){
+        GeneralInput* pGeneralInput = (GeneralInput*)pComponent;
+
+        pGeneralInput->assignEvent(CEvent);
+        pGeneralInput->perform();
+    }
 }
+
+void GameObject::update(sf::Time tDeltaTime){
+    std::vector<Component*> vecScripts = this->getComponents(ComponentType::SCRIPT);
+
+    for (Component* pComponent : vecScripts){
+        pComponent->setDeltaTime(tDeltaTime);
+        pComponent->perform();
+    }
+}
+
 void GameObject::draw(sf::RenderWindow* pWindow){
     pWindow->draw(*this->pSprite);
 }
@@ -74,8 +78,10 @@ void GameObject::attachComponent(Component* pComponent){
 void GameObject::detachComponent(Component* pComponent){
     int nIndex = -1;
     for(int i = 0; i < this->vecComponents.size(); i++){
-        if(vecComponents[i] == pComponent)
+        if(this->vecComponents[i] == pComponent){
             nIndex = i;
+            break;
+        }
     }
 
     if(nIndex != -1){
@@ -96,12 +102,12 @@ Component* GameObject::findComponentByName(std::string strName){
 }
 
 std::vector<Component*> GameObject::getComponents(ComponentType EType){
-    std::vector<Component*> vecTemp;
+    std::vector<Component*> vecFound = {};
 
     for (Component* pComponent : this->vecComponents){
         if(pComponent->getType() == EType)
-            vecTemp.push_back(pComponent);
+            vecFound.push_back(pComponent);
     }
 
-    return vecTemp;
+    return vecFound;
 }

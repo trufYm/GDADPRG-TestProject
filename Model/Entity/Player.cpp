@@ -10,14 +10,17 @@ Player::Player(std::string strName, AnimatedTexture* pTexture) : GameObject(strN
 
 }
 
-/* [TODO][2] :
-   Update this class' content based on the lecture
-   slides. */
 void Player::initialize(){
     this->pSprite->setPosition(100.0f, 100.0f);
+
+    PlayerInput* pPlayerInput = new PlayerInput(this->strName + " Input");
+    this->attachComponent(pPlayerInput);
+
+    PlayerMovement* pPlayerMovement = new PlayerMovement(this->strName + " Movement");
+    this->attachComponent(pPlayerMovement);
 }
 
-void Player::update(sf::Time tDeltaTime){
+//void Player::update(sf::Time tDeltaTime){
     /*if(this->bMovingLeft){
         this->pSprite->move(-1.0f * this->fSpeed * tDeltaTime.asSeconds(), 0.0f);
         this->setFrame(1);
@@ -31,7 +34,7 @@ void Player::update(sf::Time tDeltaTime){
     //Broken
     //this->pAnimatedTexture->incrementFrame();
     //this->setTexture(this->pAnimatedTexture->getFrame());
-}
+//}
 
 /*void Player::processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed){
     switch (CKey) {

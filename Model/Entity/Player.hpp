@@ -2,9 +2,12 @@
 
 #include "../GameObject.hpp"
 #include "../AnimatedTexture.hpp"
+#include "../Component/PlayerInput.hpp"
+#include "../Component/PlayerMovement.hpp"
 
 namespace entities {
     using namespace models;
+    using namespace components;
 
     class Player : public GameObject {
         public:
@@ -16,7 +19,7 @@ namespace entities {
            slides. */
         public:
             void initialize();
-            void update(sf::Time tDeltaTime);
+            //void update(sf::Time tDeltaTime);
         
         protected:
             void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed);

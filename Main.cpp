@@ -12,6 +12,7 @@
 #include "Model/Component/Component.cpp"
 #include "Model/Component/GeneralInput.cpp"
 #include "Model/Component/PlayerInput.cpp"
+#include "Model/Component/PlayerMovement.cpp"
 
 using namespace controllers;
 

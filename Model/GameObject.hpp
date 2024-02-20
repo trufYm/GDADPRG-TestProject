@@ -3,6 +3,7 @@
 #include "AnimatedTexture.hpp"
 #include "Component/Component.hpp"
 #include "Enum/ComponentType.hpp"
+#include "Component/GeneralInput.hpp"
 
 namespace models {
     using namespace components;
@@ -26,7 +27,7 @@ namespace models {
         public:
             virtual void initialize() = 0;
             virtual void processEvents(sf::Event CEvent);
-            virtual void update(sf::Time tDeltaTime) = 0;
+            virtual void update(sf::Time tDeltaTime);
             virtual void draw(sf::RenderWindow* pWindow);
 
         //protected:
