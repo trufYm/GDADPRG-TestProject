@@ -4,6 +4,7 @@
 #include "Component/Component.hpp"
 #include "Enum/ComponentType.hpp"
 #include "Component/GeneralInput.hpp"
+#include "Component/Renderer/Renderer.hpp"
 
 namespace models {
     using namespace components;
