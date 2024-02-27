@@ -2,9 +2,9 @@
 
 /* [TODO] :
    Include ALL necessary classes. */
-#include "PlayerInput.hpp"
-#include "Component.hpp"
-#include "../Enum/ComponentType.hpp"
+#include "../Input/PlayerInput.hpp"
+#include "../Component.hpp"
+#include "../../Enum/ComponentType.hpp"
 
 namespace components {
     class PlayerMovement : public Component {

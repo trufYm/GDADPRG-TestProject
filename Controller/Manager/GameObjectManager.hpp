@@ -18,6 +18,7 @@ namespace managers {
 
             void addObject(GameObject* pGameObject);
             GameObject* findObjectByName(std::string strName);
+            void deleteAllObjects();
 
         /* * * * * * * * * * * * * * * * * * * * * 
          *       SINGLETON-RELATED CONTENT       * 

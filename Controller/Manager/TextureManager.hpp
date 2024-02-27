@@ -9,6 +9,11 @@ namespace managers{
 
         public:
             void loadAll();
+            void loadMainMenu();
+            void loadGame();
+            void clearAll();
+
+
             std::vector<sf::Texture*> getTexture(AssetType EKey);
             sf::Texture* getTextureAt(AssetType EKey, int nFrame);
         

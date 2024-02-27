@@ -3,15 +3,10 @@
 using namespace controllers;
 
 //Constructors
-Game::Game() : CWindow(sf::VideoMode(800, 500), "EMMANUEL JOHN TAYLAN"){
-    //this->CWindow = sf::RenderWindow(sf::VideoMode(200, 200), "EMMANUEL JOHN TAYLAN");
+Game::Game() : CWindow(sf::VideoMode(800, 440), "EMMANUEL JOHN TAYLAN"){
     TextureManager::getInstance()->loadAll();
 
-    /*Player* pEntity = new Player("Player");
-    pEntity->setTexture(TextureManager::getInstance()->getTextureAt(AssetType::PLAYER, 0));
-    GameObjectManager::getInstance()->addObject(pEntity);*/
-
-    AnimatedTexture* pTexture = new AnimatedTexture(AssetType::PLAYER, TextureManager::getInstance()->getTexture(AssetType::PLAYER));
+    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::PLAYER));
     Player* pEntity = new Player("Player", pTexture);
     GameObjectManager::getInstance()->addObject(pEntity);
 }
@@ -32,6 +27,8 @@ void Game::run(){
             this->processEvents();
             this->update(tTimePerFrame);
         }
+
+        SceneManager::getInstance()->checkLoadScene();
         this->render();
     }
 }

@@ -2,8 +2,9 @@
 
 #include "../GameObject.hpp"
 #include "../AnimatedTexture.hpp"
-#include "../Component/PlayerInput.hpp"
-#include "../Component/PlayerMovement.hpp"
+#include "../Component/Input/PlayerInput.hpp"
+#include "../Component/Script/PlayerMovement.hpp"
+#include "../Component/Renderer/Renderer.hpp"
 
 namespace entities {
     using namespace models;
@@ -19,9 +20,5 @@ namespace entities {
            slides. */
         public:
             void initialize();
-            //void update(sf::Time tDeltaTime);
-        
-        protected:
-            void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed);
     };
 }

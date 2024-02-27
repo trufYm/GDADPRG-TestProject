@@ -5,12 +5,11 @@
 namespace models{
     class AnimatedTexture{
         private:
-            AssetType EType;
             std::vector<sf::Texture*> vecFrames;
             int nCurrentFrame;
         
         public:
-            AnimatedTexture(AssetType EType, std::vector<sf::Texture*> vecFrames);
+            AnimatedTexture(std::vector<sf::Texture*> vecFrames);
         
         public:
             void incrementFrame();

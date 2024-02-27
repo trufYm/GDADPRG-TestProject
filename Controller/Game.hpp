@@ -6,6 +6,7 @@
 #include "../Model/Enum/AssetType.hpp"
 #include "Manager/GameObjectManager.hpp"
 #include "../Model/AnimatedTexture.hpp"
+#include "Manager/SceneManager.hpp"
 
 namespace controllers {
     using namespace entities;

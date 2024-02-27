@@ -61,6 +61,22 @@ GameObject* GameObjectManager::findObjectByName(std::string strName) {
     }
 }
 
+void GameObjectManager::deleteAllObjects(){
+    /*for(GameObject* pGameObject : this->vecGameObject){
+        //DONT DO THIS WRONG BAD BLEH
+        //DONT DELETE OBJECTS IN SOMETHING UR ITERATING THROUGH
+        delete pGameObject;
+    }
+
+    //THIS IS NOT HOW YOU ITERATE THROUGH A MAP
+    for(GameObject* pGameObject : this->mapGameObject){
+        delete pGameObject;
+    }
+
+    this->vecGameObject.clear();
+    this->mapGameObject.clear();*/
+}
+
 /* * * * * * * * * * * * * * * * * * * * *
  *       SINGLETON-RELATED CONTENT       *
  * * * * * * * * * * * * * * * * * * * * */

@@ -18,6 +18,18 @@ void TextureManager::loadAll() {
     this->mapTexture[AssetType::PLAYER].push_back(pTexture);
 }
 
+void TextureManager::loadMainMenu(){
+    sf::Texture* pTexture = new sf::Texture();
+    pTexture->loadFromFile("View/Image/Space Impact/main_menu_background.png");
+    this->mapTexture[AssetType::MAIN_MENU_BACKGROUND].push_back(pTexture);
+}
+
+void TextureManager::loadGame(){
+    sf::Texture* pTexture = new sf::Texture();
+    pTexture->loadFromFile("View/Image/Space Impact/game_background.png");
+    this->mapTexture[AssetType::GAME_BACKGROUND].push_back(pTexture);
+}
+
 std::vector<sf::Texture*> TextureManager::getTexture(AssetType EKey){
     return this->mapTexture[EKey];
 } 

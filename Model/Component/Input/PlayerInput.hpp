@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GeneralInput.hpp"
+#include "../GeneralInput.hpp"
 
 namespace components {
     class PlayerInput : public GeneralInput {
