@@ -1,7 +1,5 @@
 #pragma once
 
-/* [TODO] :
-   Include ALL necessary classes. */
 #include "../Input/PlayerInput.hpp"
 #include "../Component.hpp"
 #include "../../Enum/ComponentType.hpp"

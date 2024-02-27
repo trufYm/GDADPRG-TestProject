@@ -30,6 +30,16 @@ void TextureManager::loadGame(){
     this->mapTexture[AssetType::GAME_BACKGROUND].push_back(pTexture);
 }
 
+void TextureManager::clearAll(){
+    int iIndex = 0;
+    for(auto i = this->mapTexture.begin(); i != this->mapTexture.end(); i++){
+        delete i->second[iIndex];
+        iIndex++;
+    }
+
+    this->mapTexture.clear();
+}
+
 std::vector<sf::Texture*> TextureManager::getTexture(AssetType EKey){
     return this->mapTexture[EKey];
 } 

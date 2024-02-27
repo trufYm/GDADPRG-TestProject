@@ -16,7 +16,6 @@ void PlayerMovement::perform() {
         std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
     }
     else {
-        /* [TODO] : Update pSprite position based on pPlayerInput flags. */
         if(pPlayerInput->getMovingLeft()){
             pSprite->move(-1.0f * this->fSpeed * this->tDeltaTime.asSeconds(), 0.0f);
         }

@@ -2,8 +2,6 @@
 
 using namespace managers;
 
-/* [TODO] :
-   Fill this up based on the slides. */
 void SceneManager::registerScene(Scene* pScene){
     this->mapScenes[pScene->getTag()] = pScene;
 }
@@ -18,8 +16,9 @@ void SceneManager::unloadScene(){
 void SceneManager::checkLoadScene(){
 
 }
-bool SceneManager::getLoaded(SceneTag ETag){
 
+bool SceneManager::getLoaded(SceneTag ETag){
+    return NULL;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * 

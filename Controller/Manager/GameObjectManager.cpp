@@ -3,18 +3,14 @@
 using namespace managers;
 
 void GameObjectManager::processEvents(sf::Event CEvent) {
-    /* [TODO][3] :
-       Iterate over the [this->vecGameObject] field. If
-       the [GameObject] inside the vector is ENABLED,
-       call the [GameObject]'s [processEvents()]
-       function. */
-    
     for (GameObject* pGameObject : this->vecGameObject){
         if(pGameObject->getEnabled())
             pGameObject->processEvents(CEvent);
     }
 
-    /*Above is equivalent to:
+    /*Range based for loop ^
+    
+    Above is equivalent to:
     for (int i = 0; i < this->vecGameObject.size(); i++){
         if(this->vecGameObject[i]->getEnabled())
             vecGameObject[i]->processEvents(CEvent);
@@ -22,11 +18,6 @@ void GameObjectManager::processEvents(sf::Event CEvent) {
 }
 
 void GameObjectManager::update(sf::Time tDeltaTime) {
-    /* [TODO][4] :
-       Iterate over the [this->vecGameObject] field. If
-       the [GameObject] inside the vector is ENABLED,
-       call the [GameObject]'s [update()] function. */
-    
     for (GameObject* pGameObject : this->vecGameObject){
         if(pGameObject->getEnabled())
             pGameObject->update(tDeltaTime);
@@ -34,11 +25,6 @@ void GameObjectManager::update(sf::Time tDeltaTime) {
 }
 
 void GameObjectManager::draw(sf::RenderWindow* pWindow) {
-    /* [TODO][5] :
-       Iterate over the [this->vecGameObject] field. If
-       the [GameObject] inside the vector is ENABLED,
-       call the [GameObject]'s [draw()] function. */
-    
     for (GameObject* pGameObject : this->vecGameObject){
         if(pGameObject->getEnabled())
             pGameObject->draw(pWindow);
@@ -62,29 +48,21 @@ GameObject* GameObjectManager::findObjectByName(std::string strName) {
 }
 
 void GameObjectManager::deleteAllObjects(){
-    /*for(GameObject* pGameObject : this->vecGameObject){
-        //DONT DO THIS WRONG BAD BLEH
-        //DONT DELETE OBJECTS IN SOMETHING UR ITERATING THROUGH
+    for(GameObject* pGameObject : this->vecGameObject){
         delete pGameObject;
     }
 
-    //THIS IS NOT HOW YOU ITERATE THROUGH A MAP
-    for(GameObject* pGameObject : this->mapGameObject){
-        delete pGameObject;
+    for(auto i = this->mapGameObject.begin(); i != this->mapGameObject.end(); i++){
+        delete i->second;
     }
 
     this->vecGameObject.clear();
-    this->mapGameObject.clear();*/
+    this->mapGameObject.clear();
 }
 
 /* * * * * * * * * * * * * * * * * * * * *
  *       SINGLETON-RELATED CONTENT       *
  * * * * * * * * * * * * * * * * * * * * */
-
-/* [TODO][2] :
-   Please make this a Singleton class.
-   Place the Singleton-related content
-   underneath this comment. */
 GameObjectManager* GameObjectManager::P_SHARED_INSTANCE = NULL;
 
 GameObjectManager::GameObjectManager() {}

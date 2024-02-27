@@ -7,8 +7,6 @@ namespace managers {
     using namespace models;
 
     class SceneManager {
-        /* [TODO] :
-           Fill this up based on the slides. */
         private:
             std::unordered_map<SceneTag, Scene*> mapScenes;
             Scene* pActiveScene;

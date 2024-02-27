@@ -23,33 +23,3 @@ void Player::initialize(){
     pRenderer->assignDrawable(this->pSprite);
     this->attachComponent(pRenderer);
 }
-
-//void Player::update(sf::Time tDeltaTime){
-    /*if(this->bMovingLeft){
-        this->pSprite->move(-1.0f * this->fSpeed * tDeltaTime.asSeconds(), 0.0f);
-        this->setFrame(1);
-    }
-
-    if(this->bMovingRight){
-        this->pSprite->move(1.0f * this->fSpeed * tDeltaTime.asSeconds(), 0.0f);
-        this->setFrame(0);
-    }*/
-
-    //Broken
-    //this->pAnimatedTexture->incrementFrame();
-    //this->setTexture(this->pAnimatedTexture->getFrame());
-//}
-
-/*void Player::processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed){
-    switch (CKey) {
-        case sf::Keyboard::A:
-            this->bMovingLeft = isPressed;
-            break;
-        case sf::Keyboard::D:
-            this->bMovingRight = isPressed;
-            break;
-        default:
-            break;
-    }
-}*/
-

@@ -4,10 +4,6 @@
 
 namespace components {
     class PlayerInput : public GeneralInput {
-        /* [TODO] :
-           Create [PlayerInput] as a child of [GeneralInput]. This class
-           will handle the Player's FLAG listening and will also contain
-           [Player]'s [processKeyboardInput()] helper function. */
         private:
             bool bMovingLeft;
             bool bMovingRight;
