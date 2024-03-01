@@ -20,9 +20,10 @@
 #include "Model/Component/GeneralInput.cpp"
 
 #include "Model/Component/Input/PlayerInput.cpp"
+#include "Model/Component/Input/BackgroundInput.cpp"
 
 #include "Model/Component/Script/PlayerMovement.cpp"
-//#include "Model/Component/Script/BackgroundAction.cpp"
+#include "Model/Component/Script/BackgroundAction.cpp"
 
 #include "Model/Component/Renderer/Renderer.cpp"
 

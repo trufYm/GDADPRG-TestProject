@@ -11,7 +11,7 @@ Game::Game() : CWindow(sf::VideoMode(800, 440), "EMMANUEL JOHN TAYLAN"){
     
     SceneManager::getInstance()->registerScene(new MainMenuScene());
     SceneManager::getInstance()->registerScene(new GameScene());
-    SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
+    SceneManager::getInstance()->loadScene(SceneTag::MAIN_MENU_SCENE);
 }
 
 //Methods

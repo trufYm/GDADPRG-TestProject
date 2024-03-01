@@ -5,6 +5,7 @@
 #include "../Controller/Manager/GameObjectManager.hpp"
 
 namespace models{
+    using namespace managers;
     class Scene{
         protected:
             SceneTag ETag;

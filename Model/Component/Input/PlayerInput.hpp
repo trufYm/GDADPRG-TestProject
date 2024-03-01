@@ -7,6 +7,8 @@ namespace components {
         private:
             bool bMovingLeft;
             bool bMovingRight;
+            bool bMovingUp;
+            bool bMovingDown;
 
         public:
             PlayerInput(std::string strName);
@@ -20,5 +22,7 @@ namespace components {
         public:
             bool getMovingLeft();
             bool getMovingRight();
+            bool getMovingUp();
+            bool getMovingDown();
     };
 }

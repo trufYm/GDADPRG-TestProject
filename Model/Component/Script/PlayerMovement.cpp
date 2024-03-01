@@ -23,5 +23,13 @@ void PlayerMovement::perform() {
         if(pPlayerInput->getMovingRight()){
             pSprite->move(1.0f * this->fSpeed * this->tDeltaTime.asSeconds(), 0.0f);
         }
+
+        if(pPlayerInput->getMovingUp()){
+            pSprite->move(0.0f, -1.0f * this->fSpeed * this->tDeltaTime.asSeconds());
+        }
+
+        if(pPlayerInput->getMovingDown()){
+            pSprite->move(0.0f, 1.0f * this->fSpeed * this->tDeltaTime.asSeconds());
+        }
     }   
 }
