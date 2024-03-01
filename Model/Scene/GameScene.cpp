@@ -1,16 +1,16 @@
-#include "MainMenuScene.hpp"
+#include "GameScene.hpp"
 
 using namespace scenes;
 
-MainMenuScene::MainMenuScene() : Scene(SceneTag::MAIN_MENU_SCENE){
+GameScene::GameScene() : Scene(SceneTag::GAME_SCENE){
 
 }
 
-void MainMenuScene::onLoadResources(){
-    TextureManager::getInstance()->loadMainMenu();
+void GameScene::onLoadResources(){
+    TextureManager::getInstance()->loadGame();
 }
 
-void MainMenuScene::onLoadObjects(){
+void GameScene::onLoadObjects(){
     //AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::PLAYER));
     //Player* pPlayer = new Player("Player", pTexture);
     //this->registerObject(pPlayer);
@@ -18,12 +18,12 @@ void MainMenuScene::onLoadObjects(){
     this->createBackground();
 }
 
-void MainMenuScene::onUnloadResources(){
+void GameScene::onUnloadResources(){
     /*TextureManager::getInstance()->clearAll()*/
 }
 
-void MainMenuScene::createBackground(){
-    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::MAIN_MENU_BACKGROUND));
+void GameScene::createBackground(){
+    AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::GAME_BACKGROUND));
     Background* pBackground = new Background("Background", pTexture);
     this->registerObject(pBackground);
 }

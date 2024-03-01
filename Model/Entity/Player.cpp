@@ -2,11 +2,11 @@
 
 using namespace entities;
 
-Player::Player(std::string strName) : GameObject(strName, 300.0f) {
+Player::Player(std::string strName) : GameObject(strName) {
 
 }
 
-Player::Player(std::string strName, AnimatedTexture* pTexture) : GameObject(strName, 300.0f, pTexture) {
+Player::Player(std::string strName, AnimatedTexture* pTexture) : GameObject(strName, pTexture) {
 
 }
 

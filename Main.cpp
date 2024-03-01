@@ -14,6 +14,7 @@
 #include "Model/Scene.cpp"
 
 #include "Model/Entity/Player.cpp"
+#include "Model/Entity/Background.cpp"
 
 #include "Model/Component/Component.cpp"
 #include "Model/Component/GeneralInput.cpp"
@@ -25,7 +26,8 @@
 
 #include "Model/Component/Renderer/Renderer.cpp"
 
-
+#include "Model/Scene/MainMenuScene.cpp"
+#include "Model/Scene/GameScene.cpp"
 
 using namespace controllers;
 

@@ -10,15 +10,26 @@ void SceneManager::loadScene(SceneTag ETag){
     this->bLoading = true;
     this->ESceneToLoad = ETag;
 }
+
 void SceneManager::unloadScene(){
-
+    if(this->pActiveScene != NULL){
+        this->pActiveScene->onUnloadObjects();
+        this->pActiveScene->onUnloadResources();
+    }
 }
-void SceneManager::checkLoadScene(){
 
+void SceneManager::checkLoadScene(){
+    if(this->bLoading){
+        this->unloadScene();
+        this->pActiveScene = this->mapScenes[this->ESceneToLoad];
+        this->pActiveScene->onLoadResources();
+        this->pActiveScene->onLoadObjects();
+        this->bLoading = false;
+    }
 }
 
 bool SceneManager::getLoaded(SceneTag ETag){
-    return NULL;
+    return this->pActiveScene->getTag() == ETag;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * 

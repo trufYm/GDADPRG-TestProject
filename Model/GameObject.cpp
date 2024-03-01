@@ -2,17 +2,15 @@
 
 using namespace models;
 
-GameObject::GameObject(std::string strName, float fSpeed) {
+GameObject::GameObject(std::string strName) {
     this->bEnabled = true;
     this->strName = strName;
-    this->fSpeed = fSpeed;
     this->pSprite = new sf::Sprite();
 }
 
-GameObject::GameObject(std::string strName, float fSpeed, AnimatedTexture* pAnimatedTexture) {
+GameObject::GameObject(std::string strName, AnimatedTexture* pAnimatedTexture) {
     this->bEnabled = true;
     this->strName = strName;
-    this->fSpeed = fSpeed;
     this->pSprite = new sf::Sprite();
     this->pAnimatedTexture = pAnimatedTexture;
     this->setFrame(0);

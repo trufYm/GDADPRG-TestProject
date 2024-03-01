@@ -9,9 +9,9 @@
 namespace scenes {
     using namespace models;
     using namespace entities;
-    class MainMenuScene : public Scene {
+    class GameScene : public Scene {
         public:
-            MainMenuScene();
+            GameScene();
 
         public:
             void onLoadResources();

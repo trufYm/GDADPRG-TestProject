@@ -19,8 +19,8 @@ namespace models {
             std::vector<Component*> vecComponents;
 
         public:
-            GameObject(std::string strName, float fSpeed);
-            GameObject(std::string strName, float fSpeed, AnimatedTexture* pAnimatedTexture);
+            GameObject(std::string strName);
+            GameObject(std::string strName, AnimatedTexture* pAnimatedTexture);
 
         public:
             virtual void initialize() = 0;
