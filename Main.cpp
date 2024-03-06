@@ -3,7 +3,7 @@
 #include "SFML/Graphics.hpp"
 
 #include "Controller/Game.cpp"
-#include "Controller/SingletonTemplate.cpp"
+//#include "Controller/SingletonTemplate.cpp"
 
 #include "Controller/Manager/GameObjectManager.cpp"
 #include "Controller/Manager/TextureManager.cpp"

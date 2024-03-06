@@ -48,12 +48,9 @@ GameObject* GameObjectManager::findObjectByName(std::string strName) {
 }
 
 void GameObjectManager::deleteAllObjects(){
-    for(GameObject* pGameObject : this->vecGameObject){
-        delete pGameObject;
-    }
-
-    for(auto i = this->mapGameObject.begin(); i != this->mapGameObject.end(); i++){
-        delete i->second;
+    std::vector<GameObject*> vecGameObject = this->vecGameObject;
+    for(int i = 0; i < vecGameObject.size(); i++){
+        delete this->vecGameObject[i];
     }
 
     this->vecGameObject.clear();

@@ -19,7 +19,7 @@ void GameScene::onLoadObjects(){
 }
 
 void GameScene::onUnloadResources(){
-    /*TextureManager::getInstance()->clearAll()*/
+    TextureManager::getInstance()->clearAll();
 }
 
 void GameScene::createBackground(){

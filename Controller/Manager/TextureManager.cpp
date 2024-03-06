@@ -35,10 +35,11 @@ void TextureManager::loadGame(){
 }
 
 void TextureManager::clearAll(){
-    int iIndex = 0;
-    for(auto i = this->mapTexture.begin(); i != this->mapTexture.end(); i++){
-        delete i->second[iIndex];
-        iIndex++;
+    for(auto& i : this->mapTexture){
+        for(auto ptr : i.second){
+            delete ptr;
+        }
+        i.second.clear();
     }
 
     this->mapTexture.clear();
