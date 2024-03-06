@@ -11,6 +11,7 @@
 namespace scenes {
     using namespace models;
     using namespace entities;
+    using namespace managers;
     class GameScene : public Scene {
         public:
             GameScene();
