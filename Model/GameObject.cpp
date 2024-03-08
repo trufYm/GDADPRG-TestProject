@@ -8,11 +8,11 @@ GameObject::GameObject(std::string strName) {
     this->pSprite = new sf::Sprite();
 }
 
-GameObject::GameObject(std::string strName, AnimatedTexture* pAnimatedTexture) {
+GameObject::GameObject(std::string strName, AnimatedTexture* pTexture) {
     this->bEnabled = true;
     this->strName = strName;
     this->pSprite = new sf::Sprite();
-    this->pAnimatedTexture = pAnimatedTexture;
+    this->pTexture = pTexture;
     this->setFrame(0);
 }
 
@@ -58,15 +58,10 @@ sf::Sprite* GameObject::getSprite() {
     return this->pSprite;
 }
 
-void GameObject::setTexture(sf::Texture* pTexture) {
-    this->pTexture = pTexture;
-    this->pSprite->setTexture(*this->pTexture);
-}
-
 void GameObject::setFrame(int nFrame){
-    if(pAnimatedTexture != NULL){
-        this->pAnimatedTexture->setCurrentFrame(nFrame);
-        this->pSprite->setTexture(*this->pAnimatedTexture->getFrame());
+    if(pTexture != NULL){
+        this->pTexture->setCurrentFrame(nFrame);
+        this->pSprite->setTexture(*this->pTexture->getFrame());
     }
 }
 

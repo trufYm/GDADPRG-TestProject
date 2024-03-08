@@ -31,7 +31,7 @@ void TextureManager::loadGame(){
 
     pTexture = new sf::Texture();
     pTexture->loadFromFile("View/Image/Space Impact/Player/this_ship_be_otp.png");
-    this->mapTexture[AssetType::PLAYER].push_back(pTexture);
+    this->mapTexture[AssetType::SHIP].push_back(pTexture);
 }
 
 void TextureManager::clearAll(){

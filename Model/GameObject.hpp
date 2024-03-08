@@ -13,8 +13,7 @@ namespace models {
             bool bEnabled;
             std::string strName;
             sf::Sprite* pSprite;
-            sf::Texture* pTexture;
-            AnimatedTexture* pAnimatedTexture;
+            AnimatedTexture* pTexture;
             float fSpeed;
             std::vector<Component*> vecComponents;
 
@@ -32,7 +31,6 @@ namespace models {
             bool getEnabled();
             std::string getName();
             sf::Sprite* getSprite();
-            void setTexture(sf::Texture* pTexture);
             void setFrame(int nFrame);
             float getSpeed();
             void attachComponent(Component* pComponent);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Model/Entity/Player.hpp"
+#include "../Model/Entity/Ship.hpp"
 //#include "SingletonTemplate.hpp"
 #include "Manager/TextureManager.hpp"
 #include "../Model/Enum/AssetType.hpp"
