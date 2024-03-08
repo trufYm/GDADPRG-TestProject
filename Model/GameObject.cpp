@@ -110,3 +110,7 @@ std::vector<Component*> GameObject::getComponents(ComponentType EType){
 
     return vecFound;
 }
+
+void GameObject::setEnabled(bool bEnabled){
+    this->bEnabled = bEnabled;
+}

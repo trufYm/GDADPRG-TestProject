@@ -12,7 +12,11 @@ GameObjectPool::GameObjectPool(PoolTag ETag, int nPoolSize, PoolableObject* pPoo
 
 void GameObjectPool::initialize(){
     for(int i = 0; i < nPoolSize; i++){
-        vecAvailableObject.push_back(this->pPoolableReference->clone());
+        PoolableObject* pClone = this->pPoolableReference->clone();
+
+        GameObjectManager::getInstance()->addObject(pClone);
+        pClone->setEnabled(false);
+        vecAvailableObject.push_back(pClone);
     }
 }
 

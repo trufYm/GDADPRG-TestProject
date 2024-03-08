@@ -37,5 +37,6 @@ namespace models {
             void detachComponent(Component* pComponent);
             Component* findComponentByName(std::string strName);
             std::vector<Component*> getComponents(ComponentType EType);
+            void setEnabled(bool bEnabled);
     };
 }

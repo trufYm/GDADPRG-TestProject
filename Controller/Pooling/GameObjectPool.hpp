@@ -2,8 +2,10 @@
 
 #include "../../Model/Pooling/PoolableObject.hpp"
 #include "../../Model/Enum/PoolTag.hpp"
+#include "../Manager/GameObjectManager.hpp"
 
 namespace poolables{
+    using namespace managers;
     class GameObjectPool{
         private:
             PoolTag ETag;
