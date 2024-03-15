@@ -28,15 +28,20 @@ namespace models {
             virtual void draw(sf::RenderWindow* pWindow);
 
         public:
+        void attachComponent(Component* pComponent);
+        void detachComponent(Component* pComponent);
+        Component* findComponentByName(std::string strName);
+        std::vector<Component*> getComponents(ComponentType EType);
+        void centerOrigin();
+
+
+        public:
             bool getEnabled();
             std::string getName();
             sf::Sprite* getSprite();
             void setFrame(int nFrame);
             float getSpeed();
-            void attachComponent(Component* pComponent);
-            void detachComponent(Component* pComponent);
-            Component* findComponentByName(std::string strName);
-            std::vector<Component*> getComponents(ComponentType EType);
             void setEnabled(bool bEnabled);
+            
     };
 }

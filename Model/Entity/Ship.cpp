@@ -3,7 +3,7 @@
 using namespace entities;
 
 Ship::Ship(std::string strName) : GameObject(strName) {
-
+    this->CNormalColor = sf::Color(0, 0, 0, 255);
 }
 
 Ship::Ship(std::string strName, AnimatedTexture* pTexture) : GameObject(strName, pTexture) {
@@ -11,7 +11,9 @@ Ship::Ship(std::string strName, AnimatedTexture* pTexture) : GameObject(strName,
 }
 
 void Ship::initialize(){
-    this->pSprite->setPosition(100.0f, 100.0f);
+    this->centerOrigin();
+    this->pSprite->setColor(this->CNormalColor);
+    this->pSprite->setPosition(90.f, 210.f);
 
     ShipInput* pShipInput = new ShipInput(this->strName + " Input");
     this->attachComponent(pShipInput);

@@ -8,11 +8,13 @@ PlayerBullet::PlayerBullet(std::string strName, AnimatedTexture* pTexture, Ship*
 
 
 void PlayerBullet::initialize(){
-
+    Renderer* pRenderer = new Renderer(this->strName + " Renderer");
+    pRenderer->assignDrawable(this->pSprite);
+    this->attachComponent(pRenderer);
 }
 
 void PlayerBullet::onActivate(){
-
+    
 }
 
 void PlayerBullet::onRelease(){

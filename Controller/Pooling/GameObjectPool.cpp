@@ -21,19 +21,39 @@ void GameObjectPool::initialize(){
 }
 
 PoolableObject* GameObjectPool::requestPoolable(){
+    if(this->hasAvailable(1)){
+        this->vecUsedObject.push_back(this->vecAvailableObject[0]);
+        this->vecAvailableObject.erase(this->vecAvailableObject.begin());
 
+        this->setEnabled(this->vecUsedObject[0], true);
+        return this->vecUsedObject[0];
+    }
+
+    return NULL;
 }
 
 void GameObjectPool::releasePoolable(PoolableObject* pPoolableObject){
 
 }
 
-void GameObjectPool::hasAvailable(int nRequestSize){
+bool GameObjectPool::hasAvailable(int nRequestSize){
+    //if(this->vecAvailableObject.size() >= nRequestSize)
+        //return true;
+    //return false;
 
+    return this->vecAvailableObject.size() >= nRequestSize;
+}
+
+std::vector<PoolableObject*> GameObjectPool::requestPoolableBatch(int nRequestSize){
+    
 }
 
 void GameObjectPool::setEnabled(PoolableObject* pPoolableObject, bool bEnabled){
-
+    pPoolableObject->setEnabled(bEnabled);
+    if(bEnabled)
+        pPoolableObject->onActivate();
+    else
+        pPoolableObject->onRelease();
 }
 
 PoolTag GameObjectPool::getTag(){

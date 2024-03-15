@@ -4,9 +4,11 @@
 #include "../../Entity/Ship.hpp"
 #include "../../AnimatedTexture.hpp"
 #include "../../Enum/PoolTag.hpp"
+#include "../../Component/Renderer/Renderer.hpp"
 
 namespace poolables{
     using namespace entities;
+    using namespace components;
     class PlayerBullet : public PoolableObject{
         private:
             Ship* pShip;

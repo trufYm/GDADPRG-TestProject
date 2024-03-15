@@ -5,5 +5,6 @@ enum class AssetType : int {
     PLAYER,
     MAIN_MENU_BACKGROUND,
     GAME_BACKGROUND,
-    SHIP
+    SHIP,
+    PLAYER_BULLET
 };

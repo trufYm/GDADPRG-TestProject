@@ -21,7 +21,10 @@ namespace poolables{
             void initialize();
             PoolableObject* requestPoolable();
             void releasePoolable(PoolableObject* pPoolableObject);
-            void hasAvailable(int nRequestSize);
+            bool hasAvailable(int nRequestSize);
+            std::vector<PoolableObject*> requestPoolableBatch(int nRequestSize);
+            
+        public:
             void setEnabled(PoolableObject* pPoolableObject, bool bEnabled);
             PoolTag getTag();
     };

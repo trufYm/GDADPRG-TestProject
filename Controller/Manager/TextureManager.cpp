@@ -32,6 +32,10 @@ void TextureManager::loadGame(){
     pTexture = new sf::Texture();
     pTexture->loadFromFile("View/Image/Space Impact/Player/this_ship_be_otp.png");
     this->mapTexture[AssetType::SHIP].push_back(pTexture);
+
+    pTexture = new sf::Texture();
+    pTexture->loadFromFile("View/Image/Space Impact/Player/bullet.png");
+    this->mapTexture[AssetType::PLAYER_BULLET].push_back(pTexture);
 }
 
 void TextureManager::clearAll(){

@@ -11,6 +11,9 @@ namespace entities {
     using namespace components;
 
     class Ship : public GameObject {
+        private:
+            sf::Color CNormalColor;
+
         public:
             Ship(std::string strName);
             Ship(std::string strName, AnimatedTexture* pTexture);

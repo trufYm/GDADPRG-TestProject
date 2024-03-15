@@ -46,29 +46,6 @@ void GameObject::draw(sf::RenderWindow* pWindow){
     }
 }
 
-bool GameObject::getEnabled() {
-    return this->bEnabled;
-}
-
-std::string GameObject::getName() {
-    return this->strName;
-}
-
-sf::Sprite* GameObject::getSprite() {
-    return this->pSprite;
-}
-
-void GameObject::setFrame(int nFrame){
-    if(pTexture != NULL){
-        this->pTexture->setCurrentFrame(nFrame);
-        this->pSprite->setTexture(*this->pTexture->getFrame());
-    }
-}
-
-float GameObject::getSpeed() {
-    return this->fSpeed;
-}
-
 void GameObject::attachComponent(Component* pComponent){
     this->vecComponents.push_back(pComponent);
     pComponent->attachOwner(this);
@@ -109,6 +86,38 @@ std::vector<Component*> GameObject::getComponents(ComponentType EType){
     }
 
     return vecFound;
+}
+
+void GameObject::centerOrigin(){
+    if(this->pTexture != NULL){
+        int nWidth = this->pSprite->getTexture()->getSize().x;
+        int nHeight = this->pSprite->getTexture()->getSize().y;
+
+        this->pSprite->setOrigin(nWidth/2.f, nHeight/2.f);
+    }
+}
+
+bool GameObject::getEnabled() {
+    return this->bEnabled;
+}
+
+std::string GameObject::getName() {
+    return this->strName;
+}
+
+sf::Sprite* GameObject::getSprite() {
+    return this->pSprite;
+}
+
+void GameObject::setFrame(int nFrame){
+    if(pTexture != NULL){
+        this->pTexture->setCurrentFrame(nFrame);
+        this->pSprite->setTexture(*this->pTexture->getFrame());
+    }
+}
+
+float GameObject::getSpeed() {
+    return this->fSpeed;
 }
 
 void GameObject::setEnabled(bool bEnabled){
