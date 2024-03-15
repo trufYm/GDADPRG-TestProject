@@ -3,7 +3,7 @@
 #include "../GameObject.hpp"
 #include "../AnimatedTexture.hpp"
 #include "../Component/Input/ShipInput.hpp"
-//#include "../Component/Script/ShipControls.hpp"
+#include "../Component/Script/ShipControls.hpp"
 #include "../Component/Renderer/Renderer.hpp"
 
 namespace entities {

@@ -22,18 +22,31 @@ void GameObjectPool::initialize(){
 
 PoolableObject* GameObjectPool::requestPoolable(){
     if(this->hasAvailable(1)){
-        this->vecUsedObject.push_back(this->vecAvailableObject[0]);
+        PoolableObject* pPoolableObject = this->vecAvailableObject[0];
+        this->vecUsedObject.push_back(pPoolableObject);
         this->vecAvailableObject.erase(this->vecAvailableObject.begin());
 
-        this->setEnabled(this->vecUsedObject[0], true);
-        return this->vecUsedObject[0];
+        this->setEnabled(pPoolableObject, true);
+        return pPoolableObject;
     }
 
     return NULL;
 }
 
 void GameObjectPool::releasePoolable(PoolableObject* pPoolableObject){
+    int nIndex = -1;
+    for(int i = 0; i < this->vecUsedObject.size(); i++){
+        if(this->vecUsedObject[i] == pPoolableObject){
+            nIndex = i;
+            break;
+        }
+    }
 
+    if(nIndex != -1){
+        this->vecAvailableObject.push_back(pPoolableObject);
+        this->vecUsedObject.erase(this->vecUsedObject.begin() + nIndex);
+        this->setEnabled(pPoolableObject, false);
+    }
 }
 
 bool GameObjectPool::hasAvailable(int nRequestSize){

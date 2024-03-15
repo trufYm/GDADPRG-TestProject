@@ -2,12 +2,21 @@
 
 using namespace managers;
 
+std::unordered_map<PoolTag, GameObjectPool*> mapObjectPool;
 
 
+void ObjectPoolManager::registerObjectPool(GameObjectPool* pPool){
+    this->mapObjectPool[pPool->getTag()] = pPool;
+}
 
+void ObjectPoolManager::unregisterObjectPool(GameObjectPool* pPool){
+    delete mapObjectPool[pPool->getTag()];
+    this->mapObjectPool.erase(pPool->getTag());
+}
 
-
-
+GameObjectPool* ObjectPoolManager::getPool(PoolTag ETag){
+    return this->mapObjectPool[ETag];
+}
 
 
 /* * * * * * * * * * * * * * * * * * * * *

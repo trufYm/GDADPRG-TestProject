@@ -5,6 +5,7 @@
 #include "../../AnimatedTexture.hpp"
 #include "../../Enum/PoolTag.hpp"
 #include "../../Component/Renderer/Renderer.hpp"
+#include "../../Component/Script/BulletMovement.hpp"
 
 namespace poolables{
     using namespace entities;

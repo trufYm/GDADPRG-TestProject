@@ -37,4 +37,6 @@ void GameScene::createObjectPools(){
     AnimatedTexture* pTexture = new AnimatedTexture(TextureManager::getInstance()->getTexture(AssetType::PLAYER_BULLET));
     GameObjectPool* pBulletPool = new GameObjectPool(PoolTag::PLAYER_BULLET, 3, new PlayerBullet("Player Bullet", pTexture, pShip));
     pBulletPool->initialize();
+
+    ObjectPoolManager::getInstance()->registerObjectPool(pBulletPool);
 }

@@ -13,6 +13,7 @@
 
 #include "../../Controller/Manager/TextureManager.hpp"
 #include "../../Controller/Manager/GameObjectManager.hpp"
+#include "../../Controller/Manager/ObjectPoolManager.hpp"
 #include "../../Controller/Pooling/GameObjectPool.hpp"
 
 namespace scenes {

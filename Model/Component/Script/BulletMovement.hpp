@@ -4,7 +4,7 @@
 #include "../../Enum/ComponentType.hpp"
 #include "../../Pooling/PoolableObject.hpp"
 #include "../Component.hpp"
-//#include "../../../Controller/Manager/ObjectPoolManager.hpp"
+#include "../../../Controller/Manager/ObjectPoolManager.hpp"
 
 namespace components {
     using namespace models;

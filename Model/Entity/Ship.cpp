@@ -18,8 +18,8 @@ void Ship::initialize(){
     ShipInput* pShipInput = new ShipInput(this->strName + " Input");
     this->attachComponent(pShipInput);
 
-    //ShipControls* pShipControls = new ShipControls(this->strName + " Movement");
-    //this->attachComponent(pShipControls);
+    ShipControls* pShipControls = new ShipControls(this->strName + " Movement");
+    this->attachComponent(pShipControls);
 
     Renderer* pRenderer = new Renderer(this->strName + " Renderer");
     pRenderer->assignDrawable(this->pSprite);

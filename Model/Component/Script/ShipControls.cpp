@@ -16,21 +16,21 @@ void ShipControls::perform() {
     else {
         float fOffset = this->fSpeed * this->tDeltaTime.asSeconds();
         
-        // if(pInput->getUp() && pShipOwner->isTopBounds())
-        //     this->getOwner()->getSprite()->move(0.0f, -fOffset);
+        if(pInput->getUp()) // && pShipOwner->isTopBounds()
+            this->getOwner()->getSprite()->move(0.0f, -fOffset);
 
-        // if(pInput->getDown() && pShipOwner->isBottomBounds())
-        //     this->getOwner()->getSprite()->move(0.0f, fOffset);
+        if(pInput->getDown()) // && pShipOwner->isBottomBounds()
+            this->getOwner()->getSprite()->move(0.0f, fOffset);
         
-        // if(pInput->getLeft() && pShipOwner->isLeftBounds())
-        //     this->getOwner()->getSprite()->move(-fOffset, 0.0f);
+        if(pInput->getLeft()) // && pShipOwner->isLeftBounds()
+            this->getOwner()->getSprite()->move(-fOffset, 0.0f);
 
-        // if(pInput->getRight() && pShipOwner->isRightBounds())
-        //     this->getOwner()->getSprite()->move(fOffset, 0.0f);
+        if(pInput->getRight()) // && pShipOwner->isRightBounds()
+            this->getOwner()->getSprite()->move(fOffset, 0.0f);
 
         if(pInput->getSpace()) {
             pInput->resetSpace();
-            //ObjectPoolManager::getInstance()->getPool(PoolTag::PLAYER_BULLET)->requestPoolable();
+            ObjectPoolManager::getInstance()->getPool(PoolTag::PLAYER_BULLET)->requestPoolable();
         }
     }
 }
