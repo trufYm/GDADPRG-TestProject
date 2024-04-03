@@ -10,6 +10,7 @@ BulletMovement::BulletMovement(std::string strName) : Component(strName, Compone
 
 void BulletMovement::perform() {
     PoolableObject* pPoolableOwner = (PoolableObject*)this->pOwner;
+    PlayerBullet* pBullet = (PlayerBullet*)this->pOwner;
 
     if(pPoolableOwner == NULL) {
         std::cout << "[ERROR] : One or more dependencies are missing." << std::endl;
@@ -22,9 +23,17 @@ void BulletMovement::perform() {
             this->pOwner->getSprite()->move(this->fSpeed * this->tDeltaTime.asSeconds(), 0.0f);
 
             float fHalfWidth = this->pOwner->getSprite()->getGlobalBounds().width / 2.0f;
-            if(this->pOwner->getSprite()->getPosition().x >= (SCREEN_WIDTH + fHalfWidth)) {
+
+            //if(pBullet->getRightBounds()){
+            //    ObjectPoolManager::getInstance()->getPool(pPoolableOwner->getTag())->releasePoolable(pPoolableOwner);
+            //}
+
+
+            if(this->pOwner->getSprite()->getPosition().x >= (SCREEN_WIDTH + fHalfWidth) || pBullet->getRightBounds()) {
                 ObjectPoolManager::getInstance()->getPool(pPoolableOwner->getTag())->releasePoolable(pPoolableOwner);
             }
+
+            
         }
     }
 }

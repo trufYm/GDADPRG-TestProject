@@ -3,9 +3,10 @@
 #include "../Pooling/GameObjectPool.hpp"
 #include "../../Model/Enum/PoolTag.hpp"
 
-namespace managers{
+namespace managers {
     using namespace poolables;
-    class ObjectPoolManager{
+
+    class ObjectPoolManager {
         private:
             std::unordered_map<PoolTag, GameObjectPool*> mapObjectPool;
 
@@ -21,12 +22,12 @@ namespace managers{
          * * * * * * * * * * * * * * * * * * * * */
         private:
             static ObjectPoolManager* P_SHARED_INSTANCE;
-        
+
         private:
             ObjectPoolManager();
-            ObjectPoolManager(ObjectPoolManager const&);
+            ObjectPoolManager(const ObjectPoolManager&);
             ObjectPoolManager& operator = (const ObjectPoolManager&);
-        
+
         public:
             static ObjectPoolManager* getInstance();
     };

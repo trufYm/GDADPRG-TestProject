@@ -6,13 +6,8 @@
 #include "../Input/ShipInput.hpp"
 #include "../../../Controller/Manager/ObjectPoolManager.hpp"
 
-namespace entities{
-    class Ship;
-}
-
 namespace components {
     using namespace managers;
-    using namespace entities;
 
     class ShipControls : public Component {
         private:

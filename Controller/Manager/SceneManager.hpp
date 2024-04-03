@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../Model/Enum/SceneTag.hpp"
 #include "../../Model/Scene.hpp"
+#include "../../Model/Enum/SceneTag.hpp"
 
 namespace managers {
     using namespace models;
@@ -12,14 +12,16 @@ namespace managers {
             Scene* pActiveScene;
             bool bLoading;
             SceneTag ESceneToLoad;
-        
+
         public:
             void registerScene(Scene* pScene);
             void loadScene(SceneTag ETag);
             void unloadScene();
             void checkLoadScene();
-            bool getLoaded(SceneTag ETag);
 
+        public:
+            bool getLoaded(SceneTag ETag);
+            
         /* * * * * * * * * * * * * * * * * * * * * 
          *       SINGLETON-RELATED CONTENT       * 
          * * * * * * * * * * * * * * * * * * * * */
@@ -33,6 +35,5 @@ namespace managers {
 
         public:
             static SceneManager* getInstance();
-        /* * * * * * * * * * * * * * * * * * * * */
     };
 }

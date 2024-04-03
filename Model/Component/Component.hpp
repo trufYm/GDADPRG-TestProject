@@ -3,34 +3,34 @@
 #include "../Enum/ComponentType.hpp"
 
 namespace models {
-    class GameObject; /* [NOTE] : Forward declaration. This is a Reading Assignment. */
+    class GameObject;
 }
 
-namespace components{
+namespace components {
     using namespace models;
-    class Component{
+    
+    class Component {
         protected:
             GameObject* pOwner;
             ComponentType EType;
             std::string strName;
             sf::Time tDeltaTime;
-        
+
         public:
             Component(std::string strName, ComponentType EType);
             virtual ~Component();
-        
+            
         public:
             void attachOwner(GameObject* pOwner);
             void detachOwner();
+
+        public:
             virtual void perform() = 0;
         
         public:
             GameObject* getOwner();
             ComponentType getType();
             std::string getName();
-            sf::Time getTime();
             void setDeltaTime(sf::Time tDeltaTime);
     };
 }
-
-

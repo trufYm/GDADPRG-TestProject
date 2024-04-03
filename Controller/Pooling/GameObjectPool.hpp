@@ -1,31 +1,37 @@
 #pragma once
 
-#include "../../Model/Pooling/PoolableObject.hpp"
 #include "../../Model/Enum/PoolTag.hpp"
+#include "../../Model/GameObject.hpp"
+#include "../../Model/Pooling/PoolableObject.hpp"
 #include "../Manager/GameObjectManager.hpp"
 
-namespace poolables{
+namespace poolables {
+    using namespace models;
     using namespace managers;
-    class GameObjectPool{
+
+    class GameObjectPool {
         private:
             PoolTag ETag;
             int nPoolSize;
             PoolableObject* pPoolableReference;
+
             std::vector<PoolableObject*> vecAvailableObject;
             std::vector<PoolableObject*> vecUsedObject;
-        
+
         public:
             GameObjectPool(PoolTag ETag, int nPoolSize, PoolableObject* pPoolableReference);
         
         public:
             void initialize();
+
             PoolableObject* requestPoolable();
             void releasePoolable(PoolableObject* pPoolableObject);
+
+        private:
             bool hasAvailable(int nRequestSize);
-            std::vector<PoolableObject*> requestPoolableBatch(int nRequestSize);
-            
-        public:
             void setEnabled(PoolableObject* pPoolableObject, bool bEnabled);
+
+        public:
             PoolTag getTag();
     };
 }

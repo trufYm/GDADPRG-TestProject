@@ -2,16 +2,14 @@
 
 using namespace entities;
 
-Background::Background(std::string strName, AnimatedTexture* pTexture) : GameObject(strName, pTexture){
+Background::Background(std::string strName, AnimatedTexture* pTexture) : GameObject(strName, pTexture) {}
 
-}
-
-void Background::initialize(){
-    BackgroundInput* pBackgroundInput = new BackgroundInput(this->strName + " Input");
-    this->attachComponent(pBackgroundInput);
-
-    BackgroundAction* pBackgroundAction = new BackgroundAction(this->strName + " Movement");
-    this->attachComponent(pBackgroundAction);
+void Background::initialize() {
+    BackgroundInput* pInput = new BackgroundInput(this->strName + " Input");
+    this->attachComponent(pInput);
+    
+    BackgroundAction* pAction = new BackgroundAction(this->strName + " Action");
+    this->attachComponent(pAction);
 
     Renderer* pRenderer = new Renderer(this->strName + " Renderer");
     pRenderer->assignDrawable(this->pSprite);

@@ -2,30 +2,27 @@
 
 using namespace controllers;
 
-//Constructors
-Game::Game() : CWindow(sf::VideoMode(800, 440), "EMMANUEL JOHN TAYLAN"){
+Game::Game() : CWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "EMMANUEL JOHN R. TAYLAN") {
     SceneManager::getInstance()->registerScene(new MainMenuScene());
     SceneManager::getInstance()->registerScene(new GameScene());
-    SceneManager::getInstance()->loadScene(SceneTag::MAIN_MENU_SCENE);
+
+    SceneManager::getInstance()->loadScene(SceneTag::GAME_SCENE);
 }
 
-//Methods
-void Game::run(){
+void Game::run() {
     sf::Clock CClock = sf::Clock();
-    sf::Time tTimePerFrame = sf::seconds(1.0f / 60.0f);
-    sf::Time tTimeSinceLastUpdate = sf::Time::Zero;
+    sf::Time tLastUpdate = sf::Time::Zero;
+    sf::Time tTimePerFrame = sf::seconds(1.0f / FRAME_RATE_LIMIT);
 
-    this->CWindow.setFramerateLimit(60.0f);
+    while(this->CWindow.isOpen()) {
+        this->processEvents();
+        tLastUpdate += CClock.restart();
 
-    while (this->CWindow.isOpen()) {
-        tTimeSinceLastUpdate += CClock.restart();
-
-        while(tTimeSinceLastUpdate > tTimePerFrame) {
-            tTimeSinceLastUpdate -= tTimePerFrame;
-            this->processEvents();
+        while(tLastUpdate > tTimePerFrame) {
+            tLastUpdate -= tTimePerFrame;
             this->update(tTimePerFrame);
         }
-
+        
         SceneManager::getInstance()->checkLoadScene();
         this->render();
     }
@@ -33,18 +30,17 @@ void Game::run(){
 
 void Game::processEvents() {
     sf::Event CEvent;
-        while (this->CWindow.pollEvent(CEvent)) {
-            switch(CEvent.type) {
-                case sf::Event::Closed:
-                    this->CWindow.close();
-                    break;
-                
-                default:
-                    GameObjectManager::getInstance()->processEvents(CEvent);
-                    break;
-                
-            }
+    while(this->CWindow.pollEvent(CEvent)) {
+        switch(CEvent.type) {
+            case sf::Event::Closed:
+                this->CWindow.close();
+                break;
+
+            default:
+                GameObjectManager::getInstance()->processEvents(CEvent);
+                break;
         }
+    }
 }
 
 void Game::update(sf::Time tDeltaTime) {

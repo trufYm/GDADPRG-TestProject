@@ -2,33 +2,35 @@
 
 using namespace managers;
 
-void SceneManager::registerScene(Scene* pScene){
+void SceneManager::registerScene(Scene* pScene) {
     this->mapScenes[pScene->getTag()] = pScene;
 }
 
-void SceneManager::loadScene(SceneTag ETag){
+void SceneManager::loadScene(SceneTag ETag) {
     this->bLoading = true;
     this->ESceneToLoad = ETag;
 }
 
-void SceneManager::unloadScene(){
-    if(this->pActiveScene != NULL){
+void SceneManager::unloadScene() {
+    if(this->pActiveScene != NULL) {
         this->pActiveScene->onUnloadObjects();
         this->pActiveScene->onUnloadResources();
     }
 }
 
-void SceneManager::checkLoadScene(){
-    if(this->bLoading){
+void SceneManager::checkLoadScene() {
+    if(this->bLoading) {
         this->unloadScene();
         this->pActiveScene = this->mapScenes[this->ESceneToLoad];
+
         this->pActiveScene->onLoadResources();
         this->pActiveScene->onLoadObjects();
+
         this->bLoading = false;
     }
 }
 
-bool SceneManager::getLoaded(SceneTag ETag){
+bool SceneManager::getLoaded(SceneTag ETag) {
     return this->pActiveScene->getTag() == ETag;
 }
 
@@ -38,6 +40,7 @@ bool SceneManager::getLoaded(SceneTag ETag){
 SceneManager* SceneManager::P_SHARED_INSTANCE = NULL;
 SceneManager::SceneManager() {
     this->pActiveScene = NULL;
+    this->bLoading = false;
 }
 SceneManager::SceneManager(const SceneManager&) {}
 
@@ -47,4 +50,3 @@ SceneManager* SceneManager::getInstance() {
 
     return P_SHARED_INSTANCE;
 }
-/* * * * * * * * * * * * * * * * * * * * */

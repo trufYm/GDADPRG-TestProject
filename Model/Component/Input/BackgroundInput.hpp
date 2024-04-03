@@ -3,28 +3,22 @@
 #include "../GeneralInput.hpp"
 
 namespace components {
-    /* [TODO] :
-       Complete this class such that it listens to
-       [SPACE] key inputs. */
     class BackgroundInput : public GeneralInput {
         private:
-            bool bInteracted;
-            bool bQuit;
-
+            bool bMainMenuScene;
+            bool bGameScene;
+        
         public:
             BackgroundInput(std::string strName);
-        
+
         public:
             void perform();
 
         private:
-            void processKeyboardInput(sf::Keyboard::Key CKey, bool isPressed);
+            void processKeyboardInput(sf::Keyboard::Key CKey, bool bPressed);
         
         public:
-            bool getInteract();
-            bool getQuit();
-
-
-
+            bool getMainMenuScene();
+            bool getGameScene();
     };
 }

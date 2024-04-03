@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../GameObject.hpp"
 #include "../Enum/PoolTag.hpp"
 #include "../AnimatedTexture.hpp"
+#include "../GameObject.hpp"
 
 namespace poolables {
     using namespace models;

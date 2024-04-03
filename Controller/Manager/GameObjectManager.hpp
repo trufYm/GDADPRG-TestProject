@@ -8,9 +8,9 @@ namespace managers {
 
     class GameObjectManager {
         private:
-            std::unordered_map<std::string, GameObject*> mapGameObject;
-            std::vector<GameObject*> vecGameObject;
-        
+            std::unordered_map<std::string, GameObject*> mapGameObjects;
+            std::vector<GameObject*> vecGameObjects;
+
         public:
             void processEvents(sf::Event CEvent);
             void update(sf::Time tDeltaTime);
@@ -25,12 +25,12 @@ namespace managers {
          * * * * * * * * * * * * * * * * * * * * */
         private:
             static GameObjectManager* P_SHARED_INSTANCE;
-        
+
         private:
             GameObjectManager();
-            GameObjectManager(GameObjectManager const&);
+            GameObjectManager(const GameObjectManager&);
             GameObjectManager& operator = (const GameObjectManager&);
-        
+
         public:
             static GameObjectManager* getInstance();
     };

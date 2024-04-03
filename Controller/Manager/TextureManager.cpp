@@ -2,59 +2,48 @@
 
 using namespace managers;
 
-void TextureManager::loadAll() {
-    std::cout << "All Loaded!" << std::endl;
-
-    sf::Texture* pTexture = new sf::Texture();
-
-    if(!pTexture->loadFromFile("View/Image/caveman.png"))
-        std::cout << "ERROR" << std::endl;
-    
-    //Dictionary - string value pair -> give string return vector
-    this->mapTexture[AssetType::PLAYER].push_back(pTexture);
-
-    pTexture = new sf::Texture();
-    pTexture->loadFromFile("View/Image/ancient.png");
-    this->mapTexture[AssetType::PLAYER].push_back(pTexture);
-}
-
-void TextureManager::loadMainMenu(){
+void TextureManager::loadMainMenu() {
     sf::Texture* pTexture = new sf::Texture();
     pTexture->loadFromFile("View/Image/Space Impact/main_menu_background.png");
     this->mapTexture[AssetType::MAIN_MENU_BACKGROUND].push_back(pTexture);
+    this->vecAssetTypes.push_back(AssetType::MAIN_MENU_BACKGROUND);
 }
 
-void TextureManager::loadGame(){
+void TextureManager::loadGame() {
     sf::Texture* pTexture = new sf::Texture();
     pTexture->loadFromFile("View/Image/Space Impact/game_background.png");
     this->mapTexture[AssetType::GAME_BACKGROUND].push_back(pTexture);
+    this->vecAssetTypes.push_back(AssetType::GAME_BACKGROUND);
 
     pTexture = new sf::Texture();
     pTexture->loadFromFile("View/Image/Space Impact/Player/this_ship_be_otp.png");
     this->mapTexture[AssetType::SHIP].push_back(pTexture);
+    this->vecAssetTypes.push_back(AssetType::SHIP);
 
     pTexture = new sf::Texture();
     pTexture->loadFromFile("View/Image/Space Impact/Player/bullet.png");
-    this->mapTexture[AssetType::PLAYER_BULLET].push_back(pTexture);
+    this->mapTexture[AssetType::BULLET].push_back(pTexture);
+    this->vecAssetTypes.push_back(AssetType::BULLET);
 }
 
-void TextureManager::clearAll(){
-    for(auto& i : this->mapTexture){
-        for(auto ptr : i.second){
-            delete ptr;
+std::vector<sf::Texture*> TextureManager::getTexture(AssetType EType){
+    return this->mapTexture[EType];
+}
+
+sf::Texture* TextureManager::getTextureAt(AssetType EType, int nFrame){
+    return this->mapTexture[EType][nFrame];
+}
+
+void TextureManager::unloadAll() {
+    for(AssetType EType : this->vecAssetTypes) {
+        std::vector<sf::Texture*> vecTextures = this->mapTexture[EType];
+        for(int i = 0; i < vecTextures.size(); i++) {
+            delete this->mapTexture[EType][i];
         }
-        i.second.clear();
     }
 
+    this->vecAssetTypes.clear();
     this->mapTexture.clear();
-}
-
-std::vector<sf::Texture*> TextureManager::getTexture(AssetType EKey){
-    return this->mapTexture[EKey];
-} 
-
-sf::Texture* TextureManager::getTextureAt(AssetType EKey, int nFrame){
-    return this->mapTexture[EKey][nFrame];
 }
 
 TextureManager* TextureManager::P_SHARED_INSTANCE = NULL;
@@ -63,7 +52,7 @@ TextureManager::TextureManager() {}
 TextureManager::TextureManager(const TextureManager&) {}
 
 TextureManager* TextureManager::getInstance() {
-    if(P_SHARED_INSTANCE == NULL){
+    if(P_SHARED_INSTANCE == NULL) {
         P_SHARED_INSTANCE = new TextureManager();
     }
 

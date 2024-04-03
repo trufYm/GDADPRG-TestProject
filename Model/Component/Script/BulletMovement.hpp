@@ -6,6 +6,10 @@
 #include "../Component.hpp"
 #include "../../../Controller/Manager/ObjectPoolManager.hpp"
 
+namespace poolables{
+    class PlayerBullet;
+}
+
 namespace components {
     using namespace models;
     using namespace managers;
